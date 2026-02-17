@@ -1,0 +1,70 @@
+=== Objective 1: Chemistry Ground Truth (v11 public) ===
+Input: Matriz_CHEM_HSI_MASTER_96.xlsx
+Sheet: Matriz
+OutputDir: E:\NextcloudData\2025 VITIMPACT\Objetivo_1\RESULTS_Obj1_20260217_133252
+Timestamp: 20260217_133252
+Fallback Date+Mgmt if Date*Mgmt fails: 1
+Compute BH-FDR q-values for contrasts: 0
+
+[DIAG] N rows in raw table: 96
+[DIAG] Date categories: 06/08, 20/08, 27/08, 03/09
+[DIAG] Irrigation categories: Rainfed, Irrigation
+
+[DIAG] Resolved endpoints:
+  BW     -> BerryWeight50_g
+  Brix   -> TSS_Brix
+  pH     -> pH
+  AT     -> TA_gL
+  Malic  -> MalicAcid_gL
+  Tart   -> TartaricAcid_gL
+  K      -> Potassium_gL
+  NOPA   -> AlphaAminoN_mgL
+  NH4    -> Ammonium_mgL
+  PPT    -> TotalPhenolicPotential_mgkg
+  PPEx   -> ExtractablePhenolicPotential_mgkg
+  AnT    -> TotalAnthocyanins_mgkg
+  AnEx   -> ExtractableAnthocyanins_mgkg
+
+Processing endpoint: BW     (Berry weight (50 berries))
+  [ok] Endpoint completed.
+
+Processing endpoint: Brix   (Total soluble solids)
+  [ok] Endpoint completed.
+
+Processing endpoint: pH     (pH)
+  [ok] Endpoint completed.
+
+Processing endpoint: AT     (Titratable acidity)
+  [ok] Endpoint completed.
+
+Processing endpoint: Malic  (Malic acid)
+  [ok] Endpoint completed.
+
+Processing endpoint: Tart   (Tartaric acid)
+  [ok] Endpoint completed.
+
+Processing endpoint: K      (Potassium)
+  [ok] Endpoint completed.
+
+Processing endpoint: NOPA   (YAN (alpha-amino N))
+  [ok] Endpoint completed.
+
+Processing endpoint: NH4    (Ammonium)
+  [ok] Endpoint completed.
+
+Processing endpoint: PPT    (Total phenolic potential)
+  [ok] Endpoint completed.
+
+Processing endpoint: PPEx   (Extractable phenolic potential)
+  [ok] Endpoint completed.
+
+Processing endpoint: AnT    (Total anthocyanins)
+  [ok] Endpoint completed.
+
+Processing endpoint: AnEx   (Extractable anthocyanins)
+  [ok] Endpoint completed.
+
+Writing Excel summary...
+
+[OK] Completed. Results saved to:
+  E:\NextcloudData\2025 VITIMPACT\Objetivo_1\RESULTS_Obj1_20260217_133252

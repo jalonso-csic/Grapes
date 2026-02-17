@@ -1,0 +1,24 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+
+# MATLAB autosaves / temp
+*.asv
+*.m~
+*.autosave
+slprj/
+*.slxc
+
+# Generated outputs (keep out of Git)
+outputs/
+**/*.fig
+**/*.png
+**/*.tif
+**/*.tiff
+**/*.pdf
+**/*.eps
+
+# Optional: data folders (if you create them later)
+data/
