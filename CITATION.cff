@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this repository, please cite the software record and the associated publication when available."
 title: "Grapes: MATLAB workflows for hyperspectral modelling, LODO robustness, VIP interpretability, and multispectral design"
 type: software
-version: 1.0.1
+version: 1.0.2
 date-released: "2026-03-19"
 license: "MIT"
 abstract: "MATLAB workflows supporting a grape hyperspectral imaging study, from berry-level spectral extraction and chemical ground-truth analysis to exploratory PCA, supervised PLS-R modelling, date-wise robustness assessment, VIP-based interpretability, and multispectral filter-set design."
@@ -17,7 +17,7 @@ repository-code: "https://github.com/jalonso-csic/Grapes"
 url: "https://github.com/jalonso-csic/Grapes"
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.19105661
+    value: 10.5281/zenodo.19105660
 authors:
   - family-names: "Alonso"
     given-names: "Jesús"

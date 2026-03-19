@@ -6,7 +6,7 @@ This repository contains the MATLAB workflows used to support the manuscript:
 
 **From hyperspectral modeling to multispectral design for grape maturity screening under date-wise validation**
 
-**Zenodo DOI (v1.0.1): 10.5281/zenodo.19105661**
+**Zenodo DOI (all versions): 10.5281/zenodo.19105660**
 
 The code is organised as a sequence of reproducible objectives that follows the analytical logic of the study:
 
@@ -240,9 +240,11 @@ For readers interested in reproducing the study logic rather than executing the 
 
 ## Citation
 
-If you use or adapt these workflows, please cite the software record:
+If you use or adapt these workflows, please cite the current software version as:
 
-**Alonso, J. (2026). _Grapes: MATLAB workflows for hyperspectral modelling, LODO robustness, VIP interpretability, and multispectral design_ (v1.0.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.19105661**
+**Alonso, J. (2026). _Grapes: MATLAB workflows for hyperspectral modelling, LODO robustness, VIP interpretability, and multispectral design_ (v1.0.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.19106485**
+
+For a repository-level citation covering all versions, use the concept DOI: **https://doi.org/10.5281/zenodo.19105660**
 
 The associated publication citation can be added once formally available.
 
