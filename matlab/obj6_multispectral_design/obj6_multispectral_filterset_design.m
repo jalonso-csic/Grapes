@@ -1,31 +1,36 @@
-function O6_Multispectral_FilterSet_Design_run_v3()
-% O6_Multispectral_FilterSet_Design_run_v3
+function obj6_multispectral_filterset_design()
+% obj6_multispectral_filterset_design
 % -------------------------------------------------------------------------
-% Objective 6: Translate VIP interpretability into deployable multispectral
-% filter-set proposals via band reduction + nested selection under LODO+k=3.
+% Objective 6 / Multispectral design
+% Translation of VIP-derived interpretability into deployable multispectral
+% filter-set proposals via candidate-band reduction and nested subset
+% selection under repeated outer validation.
 %
-% KEY UPGRADES vs v1:
-%   (1) Candidate pool derived directly from VIP profiles (local maxima with
-%       VIP >= threshold), not restricted to "Top-5 windows".
-%   (2) For FUSION, candidates are BLOCK-AWARE (FX10 vs FX17). Band simulation
-%       is done within the corresponding block to avoid mixing in overlap.
-%   (3) Candidate band responses are precomputed once per endpoint to speed
-%       up greedy forward selection (SFS).
+% This workflow:
+%   1. reads the master Excel matrix,
+%   2. reads VIP profiles from Objective 5,
+%   3. derives candidate bands from VIP peaks,
+%   4. simulates multispectral responses using an assumed FWHM,
+%   5. evaluates reduced band sets across K values,
+%   6. applies greedy forward selection within the training loop,
+%   7. compares multispectral subsets against the full-spectrum baseline,
+%   8. exports candidate-band tables, performance summaries,
+%      stability summaries, endpoint-specific K-curves,
+%      a manuscript-oriented Figure 7, and a run log.
 %
-% INPUTS (must be in the current working directory or MATLAB path):
-%   - Matriz_CHEM_HSI_MASTER_96.xlsx      (sheet 'Matriz')
-%   - O5_VIP_Profiles_SelectedTraits.xlsx (sheets named as endpoint vars)
+% Output location:
+%   <pwd>/Objetivo_6/
+%     - Tables/O6_v2_CandidateBands_fromVIPPeaks.xlsx
+%     - Tables/O6_v2_Multispectral_Performance_vsK.xlsx
+%     - Tables/O6_v2_SelectedBandSets_Stability.xlsx
+%     - Figures/O6_v2_<Endpoint>_<Mode>_Kcurve.fig/.png
+%     - Figures/Figure7_O6_Retention_TwoBaselines.fig/.png
+%     - Logs/O6_v2_runlog.txt
 %
-% OUTPUTS:
-%   - Objetivo_6/Tables/O6_v2_CandidateBands_fromVIPPeaks.xlsx
-%   - Objetivo_6/Tables/O6_v2_Multispectral_Performance_vsK.xlsx
-%   - Objetivo_6/Tables/O6_v2_SelectedBandSets_Stability.xlsx
-%   - Objetivo_6/Figures/O6_v2_<Endpoint>_<Mode>_Kcurve.*  (.fig + .png)
-%   - Objetivo_6/Figures/Figure7_O6_Retention_TwoBaselines.* (.fig + .png)
-%   - Objetivo_6/Logs/O6_v2_runlog.txt
-%
-% REQUIREMENTS:
-%   - Statistics and Machine Learning Toolbox (plsregress, cvpartition)
+% Notes:
+%   - Candidate bands are derived directly from VIP peaks.
+%   - For FUSION traits, candidate handling is block-aware (FX10 vs FX17).
+%   - Band simulation is performed within the corresponding spectral block.
 % -------------------------------------------------------------------------
 
 rng(20260226,'twister');

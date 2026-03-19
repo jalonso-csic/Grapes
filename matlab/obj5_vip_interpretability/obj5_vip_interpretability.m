@@ -1,30 +1,32 @@
-function O5_VIP_Interpretability_LODOk3_SelectedTraits_run_v11()
-% O5_VIP_Interpretability_LODOk3_SelectedTraits_run_v8
+function obj5_vip_interpretability()
+% obj5_vip_interpretability
 % ------------------------------------------------------------
-% Objective 5 / Results 3.5 (Q1-ready):
-% VIP interpretability for deployable endpoints (good CV + robust under LODO+k=3).
+% Objective 5 / Results 3.5
+% VIP-based interpretability for selected deployable traits.
 %
-% FIXES / UPDATES (v4):
-%   1) Processes all requested traits (vipTargets forced to column variables).
-%   2) White background for all exported figures (dark theme safe).
-%   3) Panel letters (a–f) added to Figure 6.
-%   4) Shaded bands for VIP windows (Top-5 VIP≥1), with darker shading for Primary windows.
-%   5) Robust VIP-area computation: skips single-point "windows" (trapz overload bug).
-%   6) Axis ticks include start/end x values (reviewer-proof).
+% This workflow:
+%   1. reads the master Excel matrix and data dictionary,
+%   2. reconstructs the selected trait-specific model settings,
+%   3. rebuilds predictor blocks for FX10, FX17, or FUSION,
+%   4. applies the same preprocessing logic used in the supervised pipeline,
+%   5. fits the final PLS-R model with the fixed selected LV,
+%   6. computes VIP profiles,
+%   7. extracts Top-5 VIP windows above the threshold,
+%   8. exports VIP tables, per-trait figures, a multi-panel Figure 6,
+%      and a run log.
 %
-% INPUT:
-%   - Matriz_CHEM_HSI_MASTER_96.xlsx  (Sheets: 'Matriz', 'DataDictionary')
+% Output location:
+%   <pwd>/Objetivo_5/
+%     - tables/O5_VIP_Profiles_SelectedTraits.xlsx
+%     - tables/Table6_VIP_Windows_Top5.xlsx
+%     - figures/Figure6_VIP_Profiles_SelectedTraits.fig/.png
+%     - figures/VIP_<EndpointVar>.fig/.png
+%     - O5_VIP_runlog.txt
 %
-% OUTPUTS (./Objetivo_5/):
-%   - tables/O5_VIP_Profiles_SelectedTraits.xlsx (one sheet per trait)
-%   - tables/Table6_VIP_Windows_Top5.xlsx       (Top-5 VIP≥1 windows per trait)
-%   - figures/Figure6_VIP_Profiles_SelectedTraits.{fig,png}
-%   - figures/VIP_<EndpointVar>.{fig,png} (one per trait)
-%   - O5_VIP_runlog.txt
-%
-% Toolboxes:
-%   - Statistics and Machine Learning Toolbox (plsregress)
-%   - Signal Processing Toolbox (sgolay)
+% Notes:
+%   - Selected traits and model settings are fixed inside the script.
+%   - White-background export is enforced for publication-safe figures.
+%   - Single-point VIP windows are skipped during area-based ranking.
 % ------------------------------------------------------------
 
 rng(20260226,'twister');

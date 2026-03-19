@@ -1,4 +1,4 @@
-function info = enviinfo_local(hdrfile)
+function info = read_envi_info(hdrfile)
 % ENVI header reader (BSQ/BIL/BIP) — versión corregida sin regexpescape
 % Lee: samples, lines, bands, header offset, byte order, interleave, data type, wavelength
 

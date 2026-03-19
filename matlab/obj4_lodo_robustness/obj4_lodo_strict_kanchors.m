@@ -1,35 +1,33 @@
-function O4_LODO_Strict_and_k3_run_v2()
-% O4_LODO_Strict_and_k3_run_v2
+function obj4_lodo_strict_kanchors()
+% obj4_lodo_strict_kanchors
 % ------------------------------------------------------------
-% Objective 4 / Results 3.4:
-% LODO (Leave-One-Date-Out; group = SamplingEvent) evaluated under:
-%   (A) Strict LODO (no information from the held-out date)
-%   (B) LODO + k anchors/date (minimal daily recalibration)
+% Objective 4 / Results 3.4
+% LODO robustness analysis under:
+%   (A) strict leave-one-date-out evaluation
+%   (B) leave-one-date-out with k anchors per date for
+%       intercept-only recalibration
 %
-% Anchor strategy (deployment-realistic):
-%   - For each held-out date, select k "anchor" samples using spectral diversity
-%     (Kennard–Stone on preprocessed Xtest).
-%   - Assume these k anchors are chemically assayed on that date.
-%   - Compute intercept update: bias = mean(y_true_anchor - y_pred_anchor)
-%   - Apply y_pred_adj = y_pred + bias to the remaining samples of that date.
-%   - Evaluate performance ONLY on non-anchor test samples (to avoid leakage).
+% This workflow:
+%   1. reads the master Excel matrix and data dictionary,
+%   2. reconstructs the selected models from the manuscript Table 4,
+%   3. evaluates each selected model under strict LODO,
+%   4. evaluates the same model under LODO + k anchors/date,
+%   5. exports manuscript-oriented performance tables,
+%      fold-level diagnostics, predictions, a slope chart,
+%      and a run log.
 %
-% INPUT:
-%   - Matriz_CHEM_HSI_MASTER_96.xlsx (Sheets: 'Matriz', 'DataDictionary')
-%
-% OUTPUT (./Objetivo_4/):
-%   - LODO_Performance_SelectedModels_Strict_vs_kAnchors.xlsx
-%       * Sheet 'Table5' : compact summary for manuscript Table 5
-%       * Sheet 'PerFold': per-held-out-date diagnostics
-%   - LODO_Predictions_SelectedModels_Strict_vs_kAnchors.xlsx
-%       * Sheet 'Predictions': long-format predictions with AnchorFlag
-%   - Figure6_LODO_Strict_vs_kAnchors.{fig,png} : slope chart (R² strict vs k-anchors)
+% Output location:
+%   <pwd>/Objetivo_4/
+%     - LODO_Performance_SelectedModels_Strict_vs_kAnchors.xlsx
+%     - LODO_Predictions_SelectedModels_Strict_vs_kAnchors.xlsx
+%     - Figure6_LODO_Strict_vs_kAnchors.fig/.png
+%     - O4_LODO_k_runlog.txt
 %
 % Notes:
-%   - Selected configurations (sensor × preprocessing × LV, plus R²cv_random)
-%     are hard-coded from Table 4 (as used in your pipeline).
-%   - No outlier filtering is applied here (kept minimal and deterministic).
-%
+%   - Selected configurations are fixed from the manuscript Table 4.
+%   - No outlier filtering is applied here.
+%   - Performance under k-anchor recalibration is evaluated only on
+%     non-anchor samples from the held-out date.
 % ------------------------------------------------------------
 
 rng(20260225,'twister');

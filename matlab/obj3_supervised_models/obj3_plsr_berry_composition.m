@@ -1,18 +1,30 @@
-function O3_PLSR_BerryComposition_run_v22()
-% O3_PLSR_BerryComposition_run_v22
+function obj3_plsr_berry_composition()
+% obj3_plsr_berry_composition
 % ------------------------------------------------------------
-% Objective 3 / Section 3.3 (PLS-R): FINAL POLISHED RUN (v22)
+% Objective 3 / Section 3.3
+% Supervised PLS-R modelling of berry composition from
+% hyperspectral predictors.
 %
-% OUTPUT LOCATION (FIXED):
-%   <pwd>\Objetivo_3\O3_PLSR_v22_<timestamp>\
+% This workflow:
+%   1. reads the master Excel matrix and data dictionary,
+%   2. extracts chemical endpoints,
+%   3. builds predictor sets for FX10, FX17, and FUSION,
+%   4. applies a preprocessing grid (RAW, SNV, SG1, SG2,
+%      SNV_SG1, SNV_SG2),
+%   5. evaluates models using repeated nested cross-validation,
+%   6. applies outlier control within training folds only,
+%   7. exports performance tables, predictions, figures, and a run log.
+%
+% Output location:
+%   <pwd>/Objetivo_3/O3_PLSR_v22_<timestamp>/
 %     - Polished_Performance.xlsx
 %     - Polished_Predictions.xlsx
-%     - Figures\ (Pred vs Ref plots for models with R2cv > 0.6)
+%     - Figures/
 %     - run_log.txt
 %
-% DARK THEME FIX:
-%   makePlot_Q1() enforces WHITE background + black text for PNG export,
-%   independent of MATLAB UI theme.
+% Notes:
+%   - White-background publication plots are enforced for PNG export.
+%   - The analytical logic of the original workflow is preserved.
 % ------------------------------------------------------------
 
 %% ------------------------ CONFIG ---------------------------

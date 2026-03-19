@@ -1,4 +1,4 @@
-function cube = enviread_local(info, rawfile)
+function cube = read_envi_cube(info, rawfile)
 % ENVI raw reader a [lines x samples x bands] para BSQ/BIL/BIP
 % ⚠️ interpretación razonada: asume datos contiguos sin padding por línea/banda.
 
