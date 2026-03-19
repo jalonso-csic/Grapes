@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the software record and the associated publication when available."
+title: "Grapes: MATLAB workflows for hyperspectral modelling, LODO robustness, VIP interpretability, and multispectral design"
+type: software
+version: 1.0.0
+date-released: "YYYY-MM-DD"
+license: "MIT"
+abstract: "MATLAB workflows supporting a grape hyperspectral imaging study, from berry-level spectral extraction and chemical ground-truth analysis to exploratory PCA, supervised PLS-R modelling, date-wise robustness assessment, VIP-based interpretability, and multispectral filter-set design."
+keywords:
+  - hyperspectral imaging
+  - grapes
+  - PLS-R
+  - MATLAB
+  - multispectral design
+  - LODO
+repository-code: "https://github.com/<USER_OR_ORG>/Grapes"
+url: "https://github.com/<USER_OR_ORG>/Grapes"
+authors:
+  - family-names: "<Surname 1>"
+    given-names: "<Given name(s) 1>"
+    affiliation: "<Affiliation 1>"
+    orcid: "https://orcid.org/<ORCID_1>"
+  - family-names: "<Surname 2>"
+    given-names: "<Given name(s) 2>"
+    affiliation: "<Affiliation 2>"
+    orcid: "https://orcid.org/<ORCID_2>"
